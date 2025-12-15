@@ -1,0 +1,46 @@
+WINDOWS:
+cd C:\Users\ ---- Caminho----\eiez-lang
+
+
+complex_test.eiez
+python src/eiez_compiler.py examples/complex_test.eiez -o compiled_test.qasm
+
+looped_test.eiez
+python src/eiez_compiler.py examples/looped_test.eiez -o compiled_looped.qasm
+
+bell.eiez
+python src/eiez_compiler.py examples/bell.eiez -o compiled_bell.qasm
+
+stress_superposition.eiez
+python src/eiez_compiler.py examples/stress_superposition.eiez -o compiled_stress.qasm
+
+advanced_test.eiez
+python src/eiez_compiler.py examples/advanced_test.eiez -o compiled_advanced.qasm
+
+
+
+
+Validador Básico de Circuitos QASM ou um Analisador de Complexidade.
+Projeto: EIEZ-QASM_LINTER (Validador de Sintaxe e Regras de QASM)
+
+# 1. Compile um arquivo EIEZ primeiro:
+python src/eiez_compiler.py examples/bell.eiez -o compiled_bell.qasm
+
+# 2. Execute o novo Linter Open Source no arquivo de saída:
+python src/qasm_linter.py compiled_bell.qasm
+
+python src/qasm_linter.py compiled_bell.qasm
+--- Analisando o arquivo: compiled_bell.qasm ---
+
+--- Sumário de Análise ---
+✅ Validação de Sintaxe Básica: OK
+
+--- Métricas de Complexidade (Custo) ---
+  Total de Qubits (N): 2
+  Total de Instruções Operacionais: 7
+  Portas de 1 Qubit (Custo Baixo): 1
+  Portas de 2 Qubits (Custo Alto - CX/CZ): 0
+
+  Custo Estimado de Fidelidade (Exemplo): 0.0010 (Baseado em Erro de Porta)
+
+--- Fim da Análise ---

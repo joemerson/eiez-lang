@@ -1,0 +1,23 @@
+EIEZ 1.0;
+
+qreg q[2];
+creg c[2];
+
+// Otimização fake: coherence -> 0.45 * N
+// CORREÇÃO: Usando a métrica suportada (TAU_MAX)
+optimize q[0], q[1] using TAU_MAX as theta; // <-- LINHA CORRIGIDA
+
+// Gate customizado (sem parâmetros)
+gate ENTANGLE() q[0], q[1] {
+    h q[0];
+    cx q[0], q[1];
+}
+
+// Usa o gate
+ENTANGLE q[0], q[1];
+
+// Usa o parâmetro {theta} injetado pelo optimizer_fake
+rx(theta) q[0];
+
+// Mede
+measure q[0] -> c[0];

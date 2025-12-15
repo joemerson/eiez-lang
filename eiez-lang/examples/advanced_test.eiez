@@ -1,0 +1,25 @@
+EIEZ 2.0;
+qreg q[4];
+creg c[4];
+
+// Gate custom: cria um par entre dois qubits
+gate entangle() q0, q1 {
+    h q0;
+    cx q0, q1;
+}
+
+// Prepara um GHZ parcial encadeado com loops
+for i in 0 to 2 {
+    entangle q[i], q[i+1];
+}
+
+// Otimização ZIE (usa token literal EIE_RATIO conforme seu lexer)
+optimize q[0], q[1], q[2] using EIE_RATIO as theta;
+
+// Aplica rotação com parâmetro otimizado
+rx(theta) q[0];
+
+// Mede e faz controle clássico condicional
+measure q[0] -> c[0];
+
+if (c[0] == 1) x q[1];

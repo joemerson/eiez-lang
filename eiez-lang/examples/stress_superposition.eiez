@@ -1,0 +1,22 @@
+EIEZ 2.0;
+qreg q[4];
+creg c[4];
+
+// loop de superposição
+for i in 0 to 3 {
+    h q[i];
+    rx(0.45) q[i];
+    rz(0.78) q[i];
+}
+
+// segundo loop com parâmetros maiores
+for j in 0 to 2 {
+    cx q[j], q[j+1];
+}
+
+// terceiro loop mais pesado
+for k in 0 to 3 {
+    rx(1.234) q[k];
+    rz(0.987) q[k];
+    ry(0.543) q[k];
+}

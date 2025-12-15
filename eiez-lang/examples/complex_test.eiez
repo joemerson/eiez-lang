@@ -1,0 +1,30 @@
+EIEZ 1.0;
+
+qreg q[4];
+creg c[4];
+
+// Otimização Global (N=4)
+optimize q[0], q[1], q[2], q[3] using TAU_MAX as alpha; 
+
+// Gate customizado (com otimização aninhada)
+gate custom_op(theta) qb0, qb1 {
+    // Otimização Interna (N=2)
+    optimize qb0, qb1 using EIE_RATIO as beta; 
+    
+    // alpha e beta serão injetados pelo compilador
+    rx(alpha) qb0; 
+    rz(beta) qb1;
+    ry(theta) qb0;
+    cx qb0, qb1;
+}
+
+// Aplicação do Gate (simulação de loop unrolled)
+custom_op(0.7854) q[0], q[1];
+custom_op(0.7854) q[1], q[2];
+custom_op(0.7854) q[2], q[3];
+custom_op(0.7854) q[3], q[0];
+
+measure q[0] -> c[0];
+measure q[1] -> c[1];
+measure q[2] -> c[2];
+measure q[3] -> c[3];

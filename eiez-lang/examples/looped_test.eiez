@@ -1,0 +1,28 @@
+EIEZ 1.0;
+
+qreg q[4];
+creg c[4];
+
+// Otimização Global (N=4)
+optimize q[0], q[1], q[2], q[3] using TAU_MAX as alpha; 
+
+// Gate customizado (com otimização aninhada)
+gate custom_op(theta) qb0, qb1 {
+    optimize qb0, qb1 using EIE_RATIO as beta; 
+    
+    rx(alpha) qb0; 
+    rz(beta) qb1;
+    ry(theta) qb0;
+    cx qb0, qb1;
+}
+
+// NOVO: Loop de repetição (Cadeia de 4 conexões - 0-1, 1-2, 2-3, 3-0)
+for i in 0 to 3 {
+    // Note: 'i+1' e 'i%4' precisam ser resolvidos pelo compilador
+    custom_op(0.7854) q[i], q[(i+1)%4];
+}
+
+measure q[0] -> c[0];
+measure q[1] -> c[1];
+measure q[2] -> c[2];
+measure q[3] -> c[3];
