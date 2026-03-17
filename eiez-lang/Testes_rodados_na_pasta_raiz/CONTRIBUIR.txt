@@ -1,0 +1,89 @@
+# Contribuindo para o EIEZ-LANG
+
+Obrigado pelo seu interesse em contribuir com o **EIEZ-LANG**!  
+O projeto ainda está em estágio inicial, e qualquer tipo de contribuição é bem-vinda.
+
+---
+
+## Antes de começar
+
+1. **Abra uma Issue**  
+   Antes de enviar um Pull Request, por favor abra uma Issue explicando:
+   - O bug encontrado  
+   - A melhoria desejada  
+   - A ideia ou funcionalidade nova  
+   - Qual mudança você pretende fazer  
+
+   Isso ajuda a manter organização e evita retrabalho.
+
+2. **Siga o estilo do código existente**
+   - Código Python limpo e legível  
+   - Funções simples e bem organizadas  
+   - Comentários onde necessário  
+   - Evite adicionar dependências pesadas  
+
+3. **Padrão para nomes de branches**
+   - `feature/nome-da-funcionalidade`
+   - `fix/descricao-do-bug`
+   - `docs/atualizacao-readme`
+
+---
+
+## Testes
+
+Antes de enviar um PR:
+
+- Teste o parser com os exemplos `.eiez`  
+- Certifique-se de que o gerador QASM está produzindo OpenQASM 2.0 válido  
+- Garanta que nenhum exemplo existente deixa de funcionar  
+
+Se adicionar novos recursos, inclua também novos exemplos, quando aplicável.
+
+---
+
+## Áreas onde você pode contribuir
+
+### Núcleo da Linguagem
+- Melhorias no lexer ou parser  
+- Extensões da gramática  
+- Expansão da IR (Intermediate Representation)  
+
+### Ferramentas
+- Melhorias no gerador QASM  
+- Novas etapas de compilação  
+- Mensagens de erro mais claras  
+
+### Documentação
+- Referência completa da gramática  
+- Exemplos adicionais  
+- Tutoriais e guias  
+
+### Qualidade e Manutenção
+- Limpeza de código  
+- Refatoração  
+- Scripts de desenvolvimento (lint, formatadores etc.)
+
+---
+
+## Como enviar um Pull Request
+
+1. Faça um fork deste repositório  
+2. Crie uma branch nova  
+3. Faça suas alterações  
+4. Envie para o seu fork  
+5. Abra um Pull Request (PR)
+
+Inclua no PR:
+
+- Uma explicação clara das mudanças  
+- A referência à Issue (se existir)  
+- Diferenças de comportamento (antes/depois)
+
+---
+
+## Código de Conduta
+
+Mantenha o respeito, colaboração e abertura ao diálogo.  
+Este projeto busca ser acolhedor para iniciantes e experientes.
+
+Obrigado por contribuir com o **EIEZ-LANG**!

@@ -1,0 +1,9 @@
+WINDOWS:
+cd C:\Users\ ---- Caminho----\eiez-lang
+
+python run.py examples\01_bell_state.eiez
+python run.py examples\01_bell_state.eiez --shots 5
+python run.py examples\04_teleportation.eiez
+python run.py examples\02_optimize_gate.eiez --backend zie
+python run.py examples\03_for_loop_4qubits.eiez --shots 5
+python run_large.py examples\05_100qubits.eiez --shots 3

@@ -1,0 +1,17 @@
+// Exemplo 2: Parametro otimizado pelo motor ZIE
+
+EIEZ 2.0;
+
+qreg q[2];
+creg c[2];
+
+// Motor ZIE calcula o angulo ideal para 2 qubits
+optimize q[0], q[1] using coherence as theta;
+
+// Usa o parametro otimizado diretamente nos gates
+h q[0];
+rx(theta) q[1];
+cx q[0], q[1];
+
+measure q[0] -> c[0];
+measure q[1] -> c[1];

@@ -1,0 +1,17 @@
+{
+  "dataset": "Yahoo Finance — PETR4.SA",
+  "ticker": "PETR4.SA",
+  "grupo_a": {
+    "energia_j": 2586.29,
+    "loss_final": 0.000784,
+    "tempo_s": 103.45
+  },
+  "grupo_b": {
+    "energia_j": 3315.76,
+    "loss_final": 0.002127,
+    "tempo_s": 132.63,
+    "intervencoes": 25
+  },
+  "reducao_energia_pct": -28.2,
+  "reducao_loss_pct": -171.22
+}

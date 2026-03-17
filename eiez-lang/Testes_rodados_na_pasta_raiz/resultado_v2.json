@@ -1,0 +1,24 @@
+{
+  "versao": "v2",
+  "dataset": "Yahoo Finance — PETR4.SA",
+  "parametros_v2": {
+    "janela_tau": 30,
+    "alpha": 0.08,
+    "psi_preventivo": 0.85,
+    "psi_alarme": 1.2,
+    "lr_floor": 1e-05
+  },
+  "grupo_a": {
+    "energia_j": 3549.23,
+    "loss_final": 0.001018,
+    "tempo_s": 141.97
+  },
+  "grupo_b": {
+    "energia_j": 3016.85,
+    "loss_final": 0.001716,
+    "tempo_s": 120.67,
+    "intervencoes": 43
+  },
+  "reducao_energia_pct": 15.0,
+  "reducao_loss_pct": -68.56
+}

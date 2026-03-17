@@ -1,0 +1,31 @@
+// Exemplo 4: Teleportação Quântica — 3 qubits
+// q[0] = qubit a ser teleportado (estado: rotação rx)
+// q[1] = qubit de Alice (emaranhado com Bob)
+// q[2] = qubit de Bob (destino)
+
+EIEZ 2.0;
+
+qreg q[3];
+creg c[3];
+
+// Prepara o estado a teleportar em q[0]
+rx(1.5708) q[0];
+
+// Cria par de Bell entre q[1] e q[2]
+h q[1];
+cx q[1], q[2];
+
+// Protocolo de Alice
+cx q[0], q[1];
+h q[0];
+
+// Medições de Alice
+measure q[0] -> c[0];
+measure q[1] -> c[1];
+
+// Correções de Bob baseadas nos resultados de Alice
+if(c[0]==1) x q[2];
+if(c[1]==1) z q[2];
+
+// Medição final — Bob verifica o estado recebido
+measure q[2] -> c[2];

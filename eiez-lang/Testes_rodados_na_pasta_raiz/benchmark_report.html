@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>EIEZ Benchmark Report</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;700;800&display=swap');
+  :root {
+    --bg:#07070e; --s1:#0f0f1a; --s2:#161624;
+    --border:#252538; --accent:#7c6af7; --green:#5ee7b0;
+    --yellow:#f7c26a; --red:#ff5f7e; --text:#e0e0f0; --muted:#6868a0;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; padding:2rem; }
+  h1 { font-size:1.8rem; font-weight:800; letter-spacing:-0.03em; margin-bottom:0.3rem; }
+  .sub { color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:0.8rem; margin-bottom:2rem; }
+  .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2rem; }
+  .card { background:var(--s1); border:1px solid var(--border); border-radius:12px; padding:1.2rem; text-align:center; }
+  .card .val { font-size:1.8rem; font-weight:800; font-family:'IBM Plex Mono',monospace; }
+  .card .lbl { font-size:0.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-top:0.3rem; }
+  table { width:100%; border-collapse:collapse; font-size:0.82rem; margin-bottom:2rem;
+           background:var(--s1); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  th { text-align:left; padding:0.9rem 1rem; font-size:0.65rem; font-weight:700;
+        letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);
+        border-bottom:1px solid var(--border); }
+  td { padding:0.85rem 1rem; border-bottom:1px solid rgba(37,37,56,0.6); vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:rgba(124,106,247,0.05); }
+  .bar-wrap { display:flex; align-items:center; gap:0.6rem; }
+  .bar { height:8px; background:linear-gradient(90deg,var(--accent),var(--green));
+          border-radius:4px; min-width:2px; transition:width 0.3s; }
+  .bar-wrap span { font-size:0.75rem; color:var(--muted); white-space:nowrap; }
+  .chart-wrap { background:var(--s1); border:1px solid var(--border); border-radius:12px;
+                 padding:1.5rem; margin-bottom:2rem; }
+  .chart-title { font-size:0.7rem; font-weight:700; letter-spacing:0.15em;
+                  text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
+  canvas { width:100% !important; }
+  .footer { text-align:center; font-size:0.72rem; color:var(--muted);
+             font-family:'IBM Plex Mono',monospace; margin-top:1rem; }
+</style>
+</head>
+<body>
+
+<h1>⚛ EIEZ Benchmark Report</h1>
+<p class="sub">Simulacao em serie · 6 tamanhos · 3 shots cada · gerado pelo EIEZ Compiler</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="val" style="color:var(--accent)">5,000</div>
+    <div class="lbl">Max Qubits</div>
+  </div>
+  <div class="card">
+    <div class="val" style="color:var(--green)">11,660</div>
+    <div class="lbl">Gates Totais</div>
+  </div>
+  <div class="card">
+    <div class="val" style="color:var(--yellow)">54.2 ms</div>
+    <div class="lbl">Tempo Total</div>
+  </div>
+  <div class="card">
+    <div class="val" style="color:var(--red)">10^1505</div>
+    <div class="lbl">Estados Possiveis (max)</div>
+  </div>
+</div>
+
+<div class="chart-wrap">
+  <div class="chart-title">Tempo de simulacao (ms) por numero de qubits</div>
+  <canvas id="chart" height="80"></canvas>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Qubits</th>
+      <th>Estados possíveis</th>
+      <th>Gates</th>
+      <th>Tempo médio</th>
+      <th>Min / Max</th>
+      <th>Distribuição |1⟩</th>
+    </tr>
+  </thead>
+  <tbody>
+        <tr>
+          <td><strong>100</strong></td>
+          <td>10^30</td>
+          <td>110</td>
+          <td>0.089 ms</td>
+          <td>0.067 / 0.120 ms</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar" style="width:48%"></div>
+              <span>48.7% |1⟩</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>500</strong></td>
+          <td>10^150</td>
+          <td>510</td>
+          <td>0.782 ms</td>
+          <td>0.343 / 1.224 ms</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar" style="width:49%"></div>
+              <span>49.0% |1⟩</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>1,000</strong></td>
+          <td>10^301</td>
+          <td>1,010</td>
+          <td>0.848 ms</td>
+          <td>0.692 / 1.022 ms</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar" style="width:50%"></div>
+              <span>50.2% |1⟩</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2,000</strong></td>
+          <td>10^602</td>
+          <td>2,010</td>
+          <td>2.749 ms</td>
+          <td>1.939 / 3.556 ms</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar" style="width:49%"></div>
+              <span>49.3% |1⟩</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3,000</strong></td>
+          <td>10^903</td>
+          <td>3,010</td>
+          <td>6.517 ms</td>
+          <td>5.706 / 8.069 ms</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar" style="width:50%"></div>
+              <span>50.3% |1⟩</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>5,000</strong></td>
+          <td>10^1505</td>
+          <td>5,010</td>
+          <td>7.082 ms</td>
+          <td>6.726 / 7.618 ms</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar" style="width:49%"></div>
+              <span>49.7% |1⟩</span>
+            </div>
+          </td>
+        </tr></tbody>
+</table>
+
+<div class="footer">
+  EIEZ Compiler v2.0 · Simulador por qubit independente · nao usa statevector completo
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script>
+const ctx = document.getElementById('chart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['100', '500', '1000', '2000', '3000', '5000'],
+    datasets: [{
+      label: 'Tempo medio (ms)',
+      data: [0.089, 0.782, 0.848, 2.749, 6.517, 7.082],
+      borderColor: '#7c6af7',
+      backgroundColor: 'rgba(124,106,247,0.1)',
+      borderWidth: 2,
+      pointBackgroundColor: '#5ee7b0',
+      pointRadius: 5,
+      tension: 0.3,
+      fill: true,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#e0e0f0', font: { family: 'IBM Plex Mono' } } }
+    },
+    scales: {
+      x: { ticks: { color: '#6868a0' }, grid: { color: '#252538' } },
+      y: { ticks: { color: '#6868a0' }, grid: { color: '#252538' } }
+    }
+  }
+});
+</script>
+</body>
+</html>

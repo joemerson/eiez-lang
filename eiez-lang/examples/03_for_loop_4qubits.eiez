@@ -1,0 +1,17 @@
+// Exemplo 3: Loop FOR — 4 qubits em superposicao
+
+EIEZ 2.0;
+
+qreg q[4];
+creg c[4];
+
+// Hadamard em cada qubit pelo loop
+for i in range 0 to 4 {
+    h q[i];
+}
+
+// Mede todos
+measure q[0] -> c[0];
+measure q[1] -> c[1];
+measure q[2] -> c[2];
+measure q[3] -> c[3];

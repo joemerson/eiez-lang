@@ -1,0 +1,9 @@
+
+
+TESTE termina
+
+cd C:\Users\\eiez-lang
+
+
+
+python eiez_compiler.py supremacy_test.eiez -o resultado_desafio.qasm

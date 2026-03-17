@@ -1,0 +1,74 @@
+[
+  {
+    "n": 1000,
+    "shots": 5,
+    "avg_ms": 1.3296,
+    "min_ms": 0.7573,
+    "max_ms": 2.6873,
+    "stdev_ms": 0.8157,
+    "ones_avg": 498,
+    "ratio": 0.498,
+    "states": "10^301",
+    "gates": 1010
+  },
+  {
+    "n": 5000,
+    "shots": 5,
+    "avg_ms": 5.4251,
+    "min_ms": 2.6536,
+    "max_ms": 9.3105,
+    "stdev_ms": 2.5266,
+    "ones_avg": 2493.4,
+    "ratio": 0.4987,
+    "states": "10^1505",
+    "gates": 5010
+  },
+  {
+    "n": 10000,
+    "shots": 5,
+    "avg_ms": 10.2546,
+    "min_ms": 7.7954,
+    "max_ms": 14.2047,
+    "stdev_ms": 2.5039,
+    "ones_avg": 5012.4,
+    "ratio": 0.5012,
+    "states": "10^3010",
+    "gates": 10010
+  },
+  {
+    "n": 15000,
+    "shots": 5,
+    "avg_ms": 14.9908,
+    "min_ms": 11.9917,
+    "max_ms": 18.5154,
+    "stdev_ms": 2.5017,
+    "ones_avg": 7495.8,
+    "ratio": 0.4997,
+    "states": "10^4515",
+    "gates": 15010
+  },
+  {
+    "n": 20000,
+    "shots": 5,
+    "avg_ms": 22.898,
+    "min_ms": 15.7626,
+    "max_ms": 32.3468,
+    "stdev_ms": 6.4586,
+    "ones_avg": 9981.2,
+    "ratio": 0.4991,
+    "states": "10^6020",
+    "gates": 20010
+  },
+  {
+    "n": 30000,
+    "shots": 5,
+    "avg_ms": 29.9687,
+    "min_ms": 20.0534,
+    "max_ms": 37.9131,
+    "stdev_ms": 6.4928,
+    "ones_avg": 15035.4,
+    "ratio": 0.5012,
+    "states": "10^9030",
+    "gates": 30010
+  }
+]

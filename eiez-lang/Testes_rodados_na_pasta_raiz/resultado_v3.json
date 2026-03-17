@@ -1,0 +1,28 @@
+{
+  "versao": "v3",
+  "dataset": "Yahoo Finance — PETR4.SA",
+  "novidade": "recuperacao_adaptativa",
+  "parametros": {
+    "janela_tau": 30,
+    "alpha_freio": 0.08,
+    "gamma_recup": 0.03,
+    "psi_prev": 0.85,
+    "psi_alarme": 1.2,
+    "psi_recupera": 0.5,
+    "lr_floor": 1e-05
+  },
+  "grupo_a": {
+    "energia_j": 2548.27,
+    "loss_final": 0.000784,
+    "tempo_s": 101.93
+  },
+  "grupo_b": {
+    "energia_j": 2618.92,
+    "loss_final": 0.001476,
+    "tempo_s": 104.76,
+    "intervencoes": 52,
+    "recuperacoes": 0
+  },
+  "reducao_energia_pct": -2.77,
+  "reducao_loss_pct": -88.27
+}
